@@ -1,5 +1,5 @@
 import React from "react";
-import { jumpToById } from "../../../../../dist";
+import { jumpToById } from "react-sidenav2";
 export default class SidenavFormatter extends React.Component {
     render() {
         return (<div>

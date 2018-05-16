@@ -1,5 +1,5 @@
 import React from "react";
-import { jumpToById } from "../../../dist/index";
+import { jumpToById } from "react-sidenav2";
 export default class Home extends React.Component {
     render() {
         return (<div>

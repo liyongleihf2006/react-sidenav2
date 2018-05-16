@@ -2,7 +2,7 @@ import path from "path";
 import React from "react";
 import { render } from "react-dom";
 import classnames from "classnames";
-import {setup,jumpToById,jumpTo,createSidenav,createTopnav,createSidenavPanel,createCrumbnav} from "../../dist/index";
+import {setup,jumpToById,jumpTo,createSidenav,createTopnav,createSidenavPanel,createCrumbnav} from "react-sidenav2";
 import {createHashHistory} from "history";
 import "./index.css";
 let data = [{
