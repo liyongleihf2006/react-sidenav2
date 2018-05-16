@@ -10,7 +10,7 @@ module.exports = {
         library:library,
     },
     entry: {
-        dll: ['react','react-dom'],
+        dll: ['react','react-dom','react-loadable','react-router','react-router-dom','react-sidenav2'],
     },
     mode:"development",
     plugins: [

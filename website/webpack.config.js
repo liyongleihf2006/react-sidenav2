@@ -1,10 +1,11 @@
 const path = require("path");
-var webpack = require('webpack');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-var HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: path.resolve(__dirname, "./src/index.jsx"),
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -22,10 +23,15 @@ module.exports = {
             include: [path.resolve(__dirname, "./src")]
         }, {
             test: /\.css$/,
-            use: [
-                { loader: "style-loader" },
-                { loader: "css-loader" }
-            ],
+            use: [MiniCssExtractPlugin.loader,
+            {
+                loader: "css-loader",
+                options: {
+                    sourceMap: true
+                }
+            }, {
+                loader: "postcss-loader"
+            }],
             include: [path.resolve(__dirname, "./src")]
         }]
     },
@@ -35,6 +41,12 @@ module.exports = {
             template: __dirname + "/src/index.html",
         }),
         new HtmlWebpackIncludeAssetsPlugin({ assets: [path.join("../dll", "dll.js")], append: false }),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: '[name].[contenthash:4].css',
+            chunkFilename: '[id].[contenthash:4].css'
+        }),
         new webpack.DllReferencePlugin({
             context: __dirname,
             manifest: path.join('dll', 'manifest.json'),
