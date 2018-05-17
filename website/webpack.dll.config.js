@@ -13,6 +13,16 @@ module.exports = {
         dll: ['react','react-dom','react-loadable','react-router','react-router-dom','react-sidenav2'],
     },
     mode:"development",
+    module: {
+        /* dll文件不需要解析 */
+        noParse: /dll/,
+        rules: [{
+            test: /\.js[x]?$/,
+            use: [{
+                loader: "babel-loader"
+            }]
+        }]
+    },
     plugins: [
         new CleanWebpackPlugin([path.join(__dirname,"dll")]),
         new webpack.DllPlugin({
