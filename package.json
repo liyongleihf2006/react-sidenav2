@@ -1,6 +1,6 @@
 {
   "name": "react-sidenav2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "react导航组件",
   "main": "./dist/index.js",
   "scripts": {
