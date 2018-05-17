@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
-    mode: "production",
-    entry: path.resolve(__dirname, "./src/index.jsx"),
+    mode: "development",
+    entry: [path.resolve(__dirname, "./src/index.jsx")],
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: '[name].[chunkhash:4].bundle.js'
@@ -39,6 +39,10 @@ module.exports = {
         new CleanWebpackPlugin([path.join(__dirname, "./dist")]),
         new HtmlWebpackPlugin({
             template: __dirname + "/src/index.html",
+            /*  让babel-polyfill始终排在第一位,让dll始终排在第二位 */
+            chunksSortMode: function (chunk1) {
+                return chunk1.names[0] !== 'babel-polyfill'&&chunk1.names[0] !== 'dll';
+            }
         }),
         new HtmlWebpackIncludeAssetsPlugin({ assets: [path.join("../dll", "dll.js")], append: false }),
         new MiniCssExtractPlugin({
