@@ -1,0 +1,84 @@
+/* 侧边导航 */
+.sidenav-container{
+    position: fixed;
+    width: 220px;
+    border-right: 1px solid #f3f3f3;
+    padding-right: 20px;
+    height: 100%;
+}
+.sidenav-ul{
+    list-style: none;
+    padding-left: 0;
+    margin:0;
+}
+.sidenav-li{
+    padding-left: 10px;
+    line-height: 40px;
+}
+.sidenav-item{
+    padding-left: 10px;
+    border-radius: 8px;    
+}
+.sidenav-item-active{
+    background:lightpink;
+}
+/* 右侧容器 */
+.content{
+    margin-left: 240px;
+    overflow:auto;
+}
+/* 顶部导航 */
+.topnav-container{
+    background: #00B7AC;
+    overflow: auto;
+    white-space: nowrap;
+}
+.topnav-item{
+    padding:17px;
+    color:white;
+    display:inline-block;
+    cursor: pointer;
+}
+.topnav-item-active{
+    background: #159E96;
+}
+.topnav-close{
+    margin-left: 4px;
+}
+.topnav-item:not(:hover) .topnav-close{
+    visibility: hidden;
+}
+/* 面包屑导航 */
+.crumbnav-container{
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    color: #337ab7;
+}
+.crumbnav-item{
+    cursor: pointer;
+}
+.crumbnav-item+.crumbnav-item::before{
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\A0";
+}
+.crumbnav-item:last-child{
+    color:#777;
+}
+/* 为了写文档,额外的样式 */
+pre{
+    padding: 1.25rem 1.5rem;
+    line-height: 1.25;
+    background: #f3f3f3;
+    border-radius: 3px;
+    overflow-x: auto;
+    font-family: monospace,monospace;
+}
+.forkme{
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+/*# sourceMappingURL=main.5331.css.map*/
